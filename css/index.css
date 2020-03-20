@@ -24,7 +24,7 @@ div button {
 div span, div .bg-info a {
     margin: 2px;
     padding: 2px;
-    color: white;
+    /*color: white;*/
     font-weight: bolder;
     cursor: pointer;
     text-decoration: underline;

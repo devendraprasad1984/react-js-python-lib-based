@@ -10,6 +10,8 @@ const Cat = props => <div> this is my cat of name <b>{props.name} - {props.color
 
 //getting global object from window global variable in browser window
 const gr = window.React;
+const ax = window.axios;
+const {HashRouter, Switch, Route, Link, Redirect} = window.ReactRouterDOM;
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
@@ -18,28 +20,27 @@ let forms = {
         cols: [0, 0, 0, 0, 0]
     }, {
         rowName: 'Gross Income Budget',
-        cols:[0, 0, 0, 0, 0]
+        cols: [0, 0, 0, 0, 0]
     }],
     1: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0, 0, 0]}, {
         rowName: 'WHAT A LINE',
         cols: [0, 0, 0, 0, 0, 0, 0]
     }],
-    2: [{rowName: 'ABC', cols: [ 0, 0, 0]}, {rowName: 'XYZ', cols: [ 0, 0, 0]}, {
+    2: [{rowName: 'ABC', cols: [0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0]}, {
         rowName: 'WHAT A LINE',
-        cols: [ 0, 0, 0]
+        cols: [0, 0, 0]
     }],
-    3: [{rowName: 'ABC', cols: [ 0, 0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [ 0, 0, 0, 0, 0, 0, 0, 0]}, {
+    3: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0, 0, 0, 0]}, {
         rowName: 'WHAT A LINE',
-        cols: [ 0, 0, 0, 0, 0, 0, 0, 0]
+        cols: [0, 0, 0, 0, 0, 0, 0, 0]
     }]
 }
 let fKeys = Object.keys(forms);
 
 
 //stateless functional component and no need to use bind(this) and is easy
-const setRouting=()=> {
-    const {BrowserRouter, Switch, Route, Link} = window.ReactRouterDOM;
-    return <BrowserRouter>
+const setRouting = () => {
+    return <HashRouter>
         <div className="bg-info">
             <Link to="/">Home</Link>
             <Link to="/budget">Budget</Link>
@@ -53,8 +54,9 @@ const setRouting=()=> {
             <Route path="/about"><About/></Route>
             <Route path="/grid"><Grid/></Route>
             <Route path="/qr"><QR/></Route>
+            <Redirect from="/about" to="/users"/>
         </Switch>
-    </BrowserRouter>
+    </HashRouter>
 }
 
 const Accordian = ({name, header, counter}) => {
@@ -110,10 +112,33 @@ const Home = () => {
         </div>
     )
 }
+
+const FetchUsers = (url, callback) => {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => callback(data))
+        .catch(error => callback({error}));
+}
+
 const About = () => {
+    const [users, setUsers] = gr.useState([{name: 'dp', username: 'dp', email: 'xyz@gmail.com', address: []}]);
+    gr.useEffect(() => {
+        // displayUsers((data)=>{
+        //     setUsers(data)
+        //     console.log("About users mounted",users);
+        // });
+    })
+    let displayUsers = (callbackFromDisplayUsers) => {
+        FetchUsers(`https://jsonplaceholder.typicode.com/users`, (data) => {
+            callbackFromDisplayUsers(data);
+        });
+    }
     return (
         <div>
             <h1>About Contents</h1>
+            <div>{users.map(x => <div>
+                <span>{x.name}</span><span>{x.username}</span><span>{x.email}</span><span>{x.address}</span>
+            </div>)}</div>
         </div>
     )
 }
