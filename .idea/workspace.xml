@@ -60,8 +60,19 @@
   <component name="ProjectId" id="1ZNJ80LM69ak0DVg0IkFkdSRDye" />
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1584673506534">
+      <screen x="0" y="0" width="1366" height="739" />
+    </state>
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1584673506534" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1584673508327">
+      <screen x="0" y="0" width="1366" height="739" />
+    </state>
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1584673508327" />
   </component>
 </project>
