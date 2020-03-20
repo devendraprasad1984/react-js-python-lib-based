@@ -10,8 +10,9 @@ const Cat = props => <div> this is my cat of name <b>{props.name} - {props.color
 
 //getting global object from window global variable in browser window
 const gr = window.React;
-const ax = window.axios;
 const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
+const ax = window.axios;
+const ag = window.agGrid;
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
@@ -74,7 +75,7 @@ const Accordian = ({name, header, counter}) => {
     gr.useEffect(() => {
         // Similar to componentDidMount and componentDidUpdate:
         // console.log("cur heading: ", heading);
-    });
+    }, []);
     let getFormDetails = (keyid) => {
         let formElm = []
         if (formKeys.indexOf(keyid) !== -1) {
@@ -116,6 +117,9 @@ const Home = () => {
     return (
         <div>
             <h1>Home Contents</h1>
+            <div>
+                <span className="badge bg-danger text-white">HTML5+ReactJs+Babel+CSS+Vanila JS</span>
+            </div>
         </div>
     )
 }
@@ -128,18 +132,21 @@ const FetchFromAPIs = (url, callback) => {
 }
 
 const About = () => {
-    let [users, setUsers] = gr.useState([{name: 'dp', username: 'dp', email: 'xyz@gmail.com', address: []}]);
+    let [users, setUsers] = gr.useState([]);
     gr.useEffect(() => {
         getUsers((data) => {
             setUsers(data);
             console.log(data)
         });
-    }, []); //to execute component render exactly once
+    }, []); //to execute component render exactly once and set state of object users
     let getUsers = async (callback) => {
         let res = await ax.get("https://jsonplaceholder.typicode.com/users");
         callback(res.data);
     }
     let displayUsers = () => {
+        if(users.length===0){
+            return <div><h1 className="text-danger">Loading users data.... plz wait...</h1></div>
+        }
         return <div>{
             users.map((x, id) => <div key={"disp_user_" + id}>
                 <span>{x.name}</span> <span>{x.email}</span> <span>{x.username}</span><span>{x.address.zipcode}</span>
@@ -155,9 +162,54 @@ const About = () => {
     )
 }
 const Grid = () => {
+    const mgrid=gr.useRef(null);
+    const cars=gr.useRef(null);
+    let loadGridData = async (e,url) => {
+        let cur=e.target;
+        e.preventDefault();
+        let oldTextVal=cur.innerHTML;
+        cur.innerHTML='<span class="badge bg-warning text-danger">Loading...</span>';
+        let gridDiv = document.getElementById('myGrid');
+        gridDiv.innerHTML='';
+        let res=await ax.get(url);
+        let rowData = res.data;
+        let colKeys=Object.keys(rowData[0]);
+        let columnDefs = colKeys.map(x=>{return {headerName: x, field: x,minWidth:150}} );
+        let gridOptions = {
+            columnDefs: columnDefs,
+            rowData: rowData,
+            defaultColDef: {
+                flex:1,
+                sortable: true,
+                filter: true,
+                resizable: true,
+            },
+            pagination: true,
+            rowSelection: 'single',
+            onRowClicked: function(event) { console.log('A row was clicked'); },
+            onColumnResized: function(event) { console.log('A column was resized'); },
+            onGridReady: function(event) { console.log('The grid is now ready'); },
+            // isScrollLag: function() { return false; }
+        };
+        new ag.Grid(gridDiv, gridOptions);
+        cur.innerHTML=oldTextVal;
+        // gridOptions.api.redrawRows();
+        // gridOptions.columnApi.sizeColumnsToFit();
+        // ag.simpleHttpRequest({url: url}).then(function(data) {
+        //     let colKeys=Object.keys(data[0]);
+        //     let columnDefs = colKeys.map(x=>{return {headerName: x, field: x,minWidth:150}} );
+        //     gridOptions.api.setColumnDefs(columnDefs);
+        //     gridOptions.api.setRowData(data);
+        // });
+    }
     return (
         <div>
             <h1>Grid Contents</h1>
+            <button ref={cars} className="btn bg-primary text-white" onClick={(e) => loadGridData(e,"https://api.myjson.com/bins/15psn9")}>Cars</button>
+            <button className="btn bg-secondary text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/albums")}>Album</button>
+            <button className="btn bg-danger text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/posts")}>Posts</button>
+            <button className="btn bg-success text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/comments")}>Comments</button>
+            <div ref={mgrid} id="myGrid" style={{height: '400px', width:'100%'}} className="ag-theme-balham"></div>
         </div>
     )
 }
