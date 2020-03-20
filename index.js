@@ -10,13 +10,13 @@ const Cat = props => <div> this is my cat of name <b>{props.name} - {props.color
 
 //getting global object from window global variable in browser window
 const gr = window.React;
-const grdom = window.ReactDOM;
-const groute = window.ReactRouter;
-const groutedom = window.ReactRouterDOM;
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
-    0: [{rowName: 'Net Interest Income', cols: [0, 0, 0, 0, 0]}, {rowName: 'Input values for ledger', cols: [0, 0, 0, 0, 0, 0, 0]}, {
+    0: [{rowName: 'Net Interest Income', cols: [0, 0, 0, 0, 0]}, {
+        rowName: 'Input values for ledger',
+        cols: [0, 0, 0, 0, 0, 0, 0]
+    }, {
         rowName: 'Gross Income Budget',
         cols: [0, 0, 0, 0, 0, 0, 0, 0, 0]
     }],
@@ -35,34 +35,26 @@ let forms = {
 }
 let fKeys = Object.keys(forms);
 
-function EnhanceComponent(ComponentToEnhance) {
-    ComponentToEnhance.prototype.componentWillReceiveProps = function (nextProps) {
-        console.log('Current props: ', this.props);
-        console.log('Next props: ', nextProps);
-    };
-    //this is an example of decorative design pattern and composite design pattern
-    return class extends React.Component {
-        render() {
-            const extraProp = {msg: 'This is an injected prop!', age: 40};
-            return (
-                <div>
-                    <ComponentToEnhance {...this.props} extraProp={extraProp}/>
-                </div>
-            );
-        }
-    }
-}
 
 //stateless functional component and no need to use bind(this) and is easy
 const setRouting = () => {
-    let router = groute.Router;
-    let route = groute.Route;
-    let rElm = <router>
+    const {BrowserRouter, Switch, Route, Link} = window.ReactRouterDOM;
+    return <BrowserRouter>
         <div>
-            <route render={() => <App/>} path="/"/>
+            <Link to="/">Home</Link>
+            <Link to="/budget">Budget</Link>
+            <Link to="/about">About</Link>
+            <Link to="/grid">Grid</Link>
+            <Link to="/qr">QR</Link>
         </div>
-    </router>
-    return rElm;
+        {/*<Switch>*/}
+        {/*    <Route exact path="/"><App/></Route>*/}
+        {/*    <Route path="/budget"><Budget title={'Budget Input Form'} callback={DisplayBudgetForms}/></Route>*/}
+        {/*    <Route path="/about"><About/></Route>*/}
+        {/*    <Route path="/grid"><Grid/></Route>*/}
+        {/*    <Route path="/qr"><QR/></Route>*/}
+        {/*</Switch>*/}
+    </BrowserRouter>
 }
 
 const Accordian = ({name, header, counter}) => {
@@ -79,9 +71,12 @@ const Accordian = ({name, header, counter}) => {
             let formX = forms[keyid];
             for (let fm in formX) {
                 let {rowName, cols} = formX[fm];
-                formElm.push(<form><div className="customInputText"><span className="text-primary xlable">{rowName}</span> <span
-                    className="nestInput">{cols.map(c => <input className="text-primary" type="text" value="0"/>)}</span>
-                </div></form>)
+                formElm.push(<form>
+                    <div className="customInputText"><span className="text-primary xlable">{rowName}</span> <span
+                        className="nestInput">{cols.map(c => <input className="text-primary" type="text"
+                                                                    value="0"/>)}</span>
+                    </div>
+                </form>)
             }
         }
         return formElm;
@@ -104,36 +99,61 @@ const Accordian = ({name, header, counter}) => {
     )
 }
 
-const displayForms = () => {
+const DisplayBudgetForms = () => {
     return forms.names.map((x, id) => <div><Accordian counter={id} header={x}/></div>);
 }
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        // this.state = {liked: false, name: this.props.name};
-        // this.displayForms = this.displayForms.bind(this); //binding is needed so as this is undefined error doesnt come
-    }
+const Home = () => {
+    return (
+        <div>
+            <h1>Home Contents</h1>
+        </div>
+    )
+}
+const About = () => {
+    return (
+        <div>
+            <h1>About Contents</h1>
+        </div>
+    )
+}
+const Grid = () => {
+    return (
+        <div>
+            <h1>Grid Contents</h1>
+        </div>
+    )
+}
+const QR = () => {
+    return (
+        <div>
+            <h1>QR Contents</h1>
+        </div>
+    )
+}
 
-    //with every setupdate the entire virtualdom vdom component rerenders
-    // this.setState({ value: this.state.value + 1 }); //wrong way to update states as its async and can be called multiple times and stacks error
-    // this.setState(prevState => ({ value: prevState.value + 1 })); //this is the right way
-    // this.setState(({ value }) => ({ value: value + 1 })); //alternatively //this is destructuring syntax
-    // from external
+const Budget = ({title, callback}) => {
+    return (
+        <div>
+            <h1 className="bg-dark text-white" style={{padding: '5px'}}>{title}</h1>
+            {/*{callback()}*/}
+        </div>
+    );
+}
 
-    render() {
-        return (
-            <div>
-                <h1 className="bg-success text-white" style={{padding: '5px'}}>{this.props.title}</h1>
-                {this.props.callback()}
-            </div>
-        );
-    }
+const App = () => {
+    return (
+        <div>
+            <div className="bg-info">{setRouting()}</div>
+            <br/>
+            <h1>this is main landing page</h1>
+        </div>
+    )
 }
 
 // ReactDOM.render(e(ReactDiv1Component), document.querySelector('#reactDiv1'));
-ReactDOM.render(<App title={'Budget Input Form'} name="global page heading"
-                     callback={displayForms}/>, document.getElementById('root'));
+// grdom.render(<Budget title={'Budget Input Form'} name="global page heading" callback={DisplayBudgetForms}/>, document.getElementById('root'));
+window.ReactDOM.render(<App/>, document.getElementById('root'));
 // let icomp1=<ReactDiv2Component age='20'/>;
 // ReactDOM.render(icomp1, document.getElementById('reactDiv2'));
 // ReactDOM.render(<ReactDiv3Component/>, document.getElementById('reactDiv3'));

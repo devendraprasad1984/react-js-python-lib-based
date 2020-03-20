@@ -21,6 +21,14 @@ div button {
     padding: 2px;
 }
 
+div span, div Link {
+    margin: 2px;
+    padding: 2px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: underline;
+}
 /*html5 compatible old browser IE*/
 article, aside, details, figcaption, figure, footer, header, section, hgroup, menu, nav {
     display: block;
