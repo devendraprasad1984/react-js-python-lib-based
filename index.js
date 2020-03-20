@@ -11,7 +11,7 @@ const Cat = props => <div> this is my cat of name <b>{props.name} - {props.color
 //getting global object from window global variable in browser window
 const gr = window.React;
 const ax = window.axios;
-const {HashRouter, Switch, Route, Link, Redirect} = window.ReactRouterDOM;
+const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
@@ -54,9 +54,18 @@ const setRouting = () => {
             <Route path="/about"><About/></Route>
             <Route path="/grid"><Grid/></Route>
             <Route path="/qr"><QR/></Route>
-            <Redirect from="/about" to="/users"/>
+            <Route path="*" component={NotFound}/>
         </Switch>
     </HashRouter>
+}
+
+const NotFound = () => {
+    return (
+        <div>
+            <h1>Page Not Found</h1><br/>
+            <h2><a href="/">Home</a></h2>
+        </div>
+    )
 }
 
 const Accordian = ({name, header, counter}) => {
@@ -64,7 +73,7 @@ const Accordian = ({name, header, counter}) => {
     const [formKeys, setFormKeys] = gr.useState(fKeys);
     gr.useEffect(() => {
         // Similar to componentDidMount and componentDidUpdate:
-        console.log("cur heading: ", heading);
+        // console.log("cur heading: ", heading);
     });
     let getFormDetails = (keyid) => {
         let formElm = []
@@ -101,9 +110,7 @@ const Accordian = ({name, header, counter}) => {
     )
 }
 
-const DisplayBudgetForms = () => {
-    return forms.names.map((x, id) => <div><Accordian counter={id} header={x}/></div>);
-}
+const DisplayBudgetForms = () => forms.names.map((x, id) => <div><Accordian counter={id} header={x}/></div>);
 
 const Home = () => {
     return (
@@ -113,7 +120,7 @@ const Home = () => {
     )
 }
 
-const FetchUsers = (url, callback) => {
+const FetchFromAPIs = (url, callback) => {
     fetch(url)
         .then(response => response.json())
         .then(data => callback(data))
@@ -121,24 +128,29 @@ const FetchUsers = (url, callback) => {
 }
 
 const About = () => {
-    const [users, setUsers] = gr.useState([{name: 'dp', username: 'dp', email: 'xyz@gmail.com', address: []}]);
+    let [users, setUsers] = gr.useState([{name: 'dp', username: 'dp', email: 'xyz@gmail.com', address: []}]);
     gr.useEffect(() => {
-        // displayUsers((data)=>{
-        //     setUsers(data)
-        //     console.log("About users mounted",users);
-        // });
-    })
-    let displayUsers = (callbackFromDisplayUsers) => {
-        FetchUsers(`https://jsonplaceholder.typicode.com/users`, (data) => {
-            callbackFromDisplayUsers(data);
+        getUsers((data) => {
+            setUsers(data);
+            console.log(data)
         });
+    }, []); //to execute component render exactly once
+    let getUsers = async (callback) => {
+        let res = await ax.get("https://jsonplaceholder.typicode.com/users");
+        callback(res.data);
+    }
+    let displayUsers = () => {
+        return <div>{
+            users.map((x, id) => <div key={"disp_user_" + id}>
+                <span>{x.name}</span> <span>{x.email}</span> <span>{x.username}</span><span>{x.address.zipcode}</span>
+            </div>)
+        }
+        </div>
     }
     return (
         <div>
             <h1>About Contents</h1>
-            <div>{users.map(x => <div>
-                <span>{x.name}</span><span>{x.username}</span><span>{x.email}</span><span>{x.address}</span>
-            </div>)}</div>
+            {displayUsers()}
         </div>
     )
 }

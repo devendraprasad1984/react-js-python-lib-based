@@ -1,8 +1,18 @@
 
 body {
-    /*background-color: white;*/
+    color: black;
     line-height: 1.2;
     font-weight: 400;
+    color: black;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: fit-content;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    /* make scrollbar transparent */
 }
 
 *, ::after, ::before {
@@ -21,14 +31,22 @@ div button {
     padding: 2px;
 }
 
-div span, div .bg-info a {
+.bg-info a {
     margin: 2px;
     padding: 2px;
-    /*color: white;*/
     font-weight: bolder;
     cursor: pointer;
     text-decoration: underline;
+    color: white;
 }
+
+div span {
+    margin: 2px;
+    padding: 2px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
 /*html5 compatible old browser IE*/
 article, aside, details, figcaption, figure, footer, header, section, hgroup, menu, nav {
     display: block;
@@ -75,15 +93,16 @@ pre {
     z-index: 1000;
 }
 
-.customInputText .nestInput{
+.customInputText .nestInput {
     float: right;
 }
-.customInputText input[type=text]{
+
+.customInputText input[type=text] {
     width: 50px;
-    padding:1px;
-    margin:2px;
+    padding: 1px;
+    margin: 2px;
     text-align: right;
-    left:50%;
+    left: 50%;
 }
 
 @-ms-viewport {
@@ -121,6 +140,7 @@ section {
     position: absolute;
     padding: 5px;
 }
+
 .badge {
     display: inline-block;
     padding: .25em .4em;
@@ -158,9 +178,11 @@ section {
 .text-white {
     color: white;
 }
+
 .text-dark {
     color: #343a40 !important
 }
+
 .text-body {
     color: #212529 !important
 }
@@ -172,18 +194,23 @@ section {
 .text-primary {
     color: #007bff !important
 }
+
 .text-success {
     color: #28a745 !important
 }
+
 .text-info {
     color: #17a2b8 !important
 }
+
 .text-warning {
     color: #ffc107 !important
 }
+
 .text-danger {
     color: #dc3545 !important
 }
+
 .text-light {
     color: #f8f9fa !important
 }
@@ -362,7 +389,6 @@ pre {
 
 
 a {
-    color: white;
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
