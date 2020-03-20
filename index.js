@@ -15,45 +15,45 @@ let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
     0: [{rowName: 'Net Interest Income', cols: [0, 0, 0, 0, 0]}, {
         rowName: 'Input values for ledger',
-        cols: [0, 0, 0, 0, 0, 0, 0]
+        cols: [0, 0, 0, 0, 0]
     }, {
         rowName: 'Gross Income Budget',
-        cols: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        cols:[0, 0, 0, 0, 0]
     }],
-    1: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0]}, {
+    1: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0, 0, 0]}, {
         rowName: 'WHAT A LINE',
-        cols: [0, 0, 0, 0, 0]
+        cols: [0, 0, 0, 0, 0, 0, 0]
     }],
-    2: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0]}, {
+    2: [{rowName: 'ABC', cols: [ 0, 0, 0]}, {rowName: 'XYZ', cols: [ 0, 0, 0]}, {
         rowName: 'WHAT A LINE',
-        cols: [0, 0, 0, 0, 0]
+        cols: [ 0, 0, 0]
     }],
-    3: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {
+    3: [{rowName: 'ABC', cols: [ 0, 0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [ 0, 0, 0, 0, 0, 0, 0, 0]}, {
         rowName: 'WHAT A LINE',
-        cols: [0, 0, 0, 0, 0]
+        cols: [ 0, 0, 0, 0, 0, 0, 0, 0]
     }]
 }
 let fKeys = Object.keys(forms);
 
 
 //stateless functional component and no need to use bind(this) and is easy
-const setRouting = () => {
+const setRouting=()=> {
     const {BrowserRouter, Switch, Route, Link} = window.ReactRouterDOM;
     return <BrowserRouter>
-        <div>
+        <div className="bg-info">
             <Link to="/">Home</Link>
             <Link to="/budget">Budget</Link>
             <Link to="/about">About</Link>
             <Link to="/grid">Grid</Link>
             <Link to="/qr">QR</Link>
         </div>
-        {/*<Switch>*/}
-        {/*    <Route exact path="/"><App/></Route>*/}
-        {/*    <Route path="/budget"><Budget title={'Budget Input Form'} callback={DisplayBudgetForms}/></Route>*/}
-        {/*    <Route path="/about"><About/></Route>*/}
-        {/*    <Route path="/grid"><Grid/></Route>*/}
-        {/*    <Route path="/qr"><QR/></Route>*/}
-        {/*</Switch>*/}
+        <Switch>
+            <Route exact path="/"><Home/></Route>
+            <Route path="/budget"><Budget title={'Budget Input Form'} callback={DisplayBudgetForms}/></Route>
+            <Route path="/about"><About/></Route>
+            <Route path="/grid"><Grid/></Route>
+            <Route path="/qr"><QR/></Route>
+        </Switch>
     </BrowserRouter>
 }
 
@@ -136,19 +136,13 @@ const Budget = ({title, callback}) => {
     return (
         <div>
             <h1 className="bg-dark text-white" style={{padding: '5px'}}>{title}</h1>
-            {/*{callback()}*/}
+            {callback()}
         </div>
     );
 }
 
 const App = () => {
-    return (
-        <div>
-            <div className="bg-info">{setRouting()}</div>
-            <br/>
-            <h1>this is main landing page</h1>
-        </div>
-    )
+    return <div>{setRouting()}</div>;
 }
 
 // ReactDOM.render(e(ReactDiv1Component), document.querySelector('#reactDiv1'));

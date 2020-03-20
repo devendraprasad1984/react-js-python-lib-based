@@ -21,7 +21,7 @@ div button {
     padding: 2px;
 }
 
-div span, div Link {
+div span, div .bg-info a {
     margin: 2px;
     padding: 2px;
     color: white;

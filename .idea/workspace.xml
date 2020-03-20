@@ -2,47 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759d1464-ed16-4660-af54-ac673c94f2e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/axios.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/babel-browser.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/react-redux.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/react-router-dom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/react-router.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/react.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/reactdom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/redux.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/reduxBaseTest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testX.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/HOC.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/routing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/routing1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cd4d0a87-31af-41a6-911f-0c573604a424.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/UI.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/css/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/axios.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/babel-browser.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/react-redux.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/react-router-dom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/react-router.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/react.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/reactdom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/redux.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/js/reduxBaseTest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/tests/routing.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/tests/routing1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testX.js" beforeDir="false" afterPath="$PROJECT_DIR$/testX.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +19,18 @@
       <executable />
     </execution>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="react-js-python" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZNJ80LM69ak0DVg0IkFkdSRDye" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -65,14 +38,23 @@
   <component name="SvnConfiguration">
     <configuration />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1584673506534">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1584673548372">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1584673506534" />
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1584673508327">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1584673548372" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1584673549755">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1584673508327" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1584673549755" />
   </component>
 </project>
