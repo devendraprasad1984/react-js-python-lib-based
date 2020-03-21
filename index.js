@@ -239,7 +239,7 @@ const QRApp = () => {
             <h1>QR Contents</h1>
             <div>
                 <button className="btn btn-dark" onClick={()=>makeCode()}>Generate Code</button>
-                <div><input className="w3-input" type="text" id='qrInputVal' value={"enter your text"} ref={qrInputVal}/></div><br/>
+                <div><input className="w3-input" type="text" id='qrInputVal' placeholder="enter text here" ref={qrInputVal}/></div><br/>
             </div>
             <div id='qrdiv' ref={qrdiv}></div>
         </div>
