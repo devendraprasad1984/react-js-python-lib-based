@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759d1464-ed16-4660-af54-ac673c94f2e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/css/ag-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/ag-theme-balham.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/ag-grid-community.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/settings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
@@ -21,6 +21,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="react-js-python" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,13 +60,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1584693162644">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1584693182149">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1584693162644" />
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1584693164069">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1584693182149" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1584693183422">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1584693164069" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1584693183422" />
   </component>
 </project>

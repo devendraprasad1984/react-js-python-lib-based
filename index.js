@@ -13,6 +13,7 @@ const gr = window.React;
 const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
 const ax = window.axios;
 const ag = window.agGrid;
+const {hostname,origin,href,pathname} = window.location;
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
