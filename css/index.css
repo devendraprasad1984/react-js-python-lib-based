@@ -211,6 +211,15 @@ section {
     color: #dc3545 !important
 }
 
+.w3-input {
+    padding: 8px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%
+}
+
+
 .text-light {
     color: #f8f9fa !important
 }

@@ -14,6 +14,8 @@ const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
 const ax = window.axios;
 const ag = window.agGrid;
 const {hostname,origin,href,pathname} = window.location;
+const qr=window.QRCode;
+
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
@@ -55,7 +57,7 @@ const setRouting = () => {
             <Route path="/budget"><Budget title={'Budget Input Form'} callback={DisplayBudgetForms}/></Route>
             <Route path="/about"><About/></Route>
             <Route path="/grid"><Grid/></Route>
-            <Route path="/qr"><QR/></Route>
+            <Route path="/qr"><QRApp/></Route>
             <Route path="*" component={NotFound}/>
         </Switch>
     </HashRouter>
@@ -214,10 +216,32 @@ const Grid = () => {
         </div>
     )
 }
-const QR = () => {
+const QRApp = () => {
+    let qrdiv=gr.useRef(null);
+    let qrInputVal=gr.useRef(null);
+    const makeCode=()=>{
+        let div2loadQrIn=qrdiv.current;
+        let qrInputValText=qrInputVal.current.value;
+        div2loadQrIn.innerHTML='';
+        let qrcode=new qr(div2loadQrIn,{
+            text: qrInputValText,
+            width: 300,
+            height: 300,
+            colorDark : "black",
+            colorLight : "white",
+            correctLevel : qr.CorrectLevel.H
+        });
+        // qrcode.clear(); // clear the code.
+        // qrcode.makeCode(qrInputValText); // make another code.
+    }
     return (
         <div>
             <h1>QR Contents</h1>
+            <div>
+                <button className="btn btn-dark" onClick={()=>makeCode()}>Generate Code</button>
+                <div><input className="w3-input" type="text" id='qrInputVal' value={"enter your text"} ref={qrInputVal}/></div><br/>
+            </div>
+            <div id='qrdiv' ref={qrdiv}></div>
         </div>
     )
 }
