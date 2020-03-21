@@ -11,11 +11,11 @@ const Cat = props => <div> this is my cat of name <b>{props.name} - {props.color
 //getting global object from window global variable in browser window
 const gr = window.React;
 const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
-const ax = window.axios;
+// const ax = window.axios;
 const ag = window.agGrid;
 const {hostname,origin,href,pathname} = window.location;
 const qr=window.QRCode;
-
+const fetch=window.fetch;
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
@@ -79,6 +79,14 @@ const Accordian = ({name, header, counter}) => {
         // Similar to componentDidMount and componentDidUpdate:
         // console.log("cur heading: ", heading);
     }, []);
+    // WRITE THE VALIDATION SCRIPT.
+    function isNumber(evt) {
+        var iKeyCode = (evt.which) ? evt.which : evt.keyCode;
+        console.log(iKeyCode);
+        if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+            return false;
+        return true;
+    }
     let getFormDetails = (keyid) => {
         let formElm = []
         if (formKeys.indexOf(keyid) !== -1) {
@@ -89,7 +97,7 @@ const Accordian = ({name, header, counter}) => {
                 formElm.push(<form>
                     <div className="customInputText"><span className="text-primary xlable">{rowName}</span> <span
                         className="nestInput">{cols.map(c => <input className="text-primary" type="text"
-                                                                    value="0"/>)}</span>
+                                                                    defaultValue={c} onKeyDown={(event)=>isNumber(event)}/>)}</span>
                     </div>
                 </form>)
             }
@@ -139,12 +147,13 @@ const About = () => {
     gr.useEffect(() => {
         getUsers((data) => {
             setUsers(data);
-            console.log(data)
+            // console.log(data)
         });
     }, []); //to execute component render exactly once and set state of object users
     let getUsers = async (callback) => {
-        let res = await ax.get("https://jsonplaceholder.typicode.com/users");
-        callback(res.data);
+        // let res = await ax.get("https://jsonplaceholder.typicode.com/users");
+        let res = await fetch("https://jsonplaceholder.typicode.com/users");
+        callback(await res.json());
     }
     let displayUsers = () => {
         if(users.length===0){
@@ -166,16 +175,17 @@ const About = () => {
 }
 const Grid = () => {
     const mgrid=gr.useRef(null);
-    const cars=gr.useRef(null);
     let loadGridData = async (e,url) => {
         let cur=e.target;
         e.preventDefault();
         let oldTextVal=cur.innerHTML;
-        cur.innerHTML='<span class="badge bg-warning text-danger">Loading...</span>';
+        // cur.innerHTML='<span class="badge bg-warning text-danger">Loading...</span>';
+        cur.innerHTML='Loading...';
         let gridDiv = document.getElementById('myGrid');
         gridDiv.innerHTML='';
-        let res=await ax.get(url);
-        let rowData = res.data;
+        // let res=await ax.get(url);
+        let res=await fetch(url);
+        let rowData=await res.json();
         let colKeys=Object.keys(rowData[0]);
         let columnDefs = colKeys.map(x=>{return {headerName: x, field: x,minWidth:150}} );
         let gridOptions = {
@@ -208,7 +218,6 @@ const Grid = () => {
     return (
         <div>
             <h1>Grid Contents</h1>
-            <button ref={cars} className="btn bg-primary text-white" onClick={(e) => loadGridData(e,"https://api.myjson.com/bins/15psn9")}>Cars</button>
             <button className="btn bg-secondary text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/albums")}>Album</button>
             <button className="btn bg-danger text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/posts")}>Posts</button>
             <button className="btn bg-success text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/comments")}>Comments</button>
