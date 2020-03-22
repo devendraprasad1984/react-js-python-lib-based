@@ -13,9 +13,9 @@ const gr = window.React;
 const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
 // const ax = window.axios;
 const ag = window.agGrid;
-const {hostname,origin,href,pathname} = window.location;
-const qr=window.QRCode;
-const fetch=window.fetch;
+const {hostname, origin, href, pathname} = window.location;
+const qr = window.QRCode;
+const fetch = window.fetch;
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
@@ -26,16 +26,16 @@ let forms = {
         rowName: 'Gross Income Budget',
         cols: [0, 0, 0, 0, 0]
     }],
-    1: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0, 0, 0]}, {
-        rowName: 'WHAT A LINE',
+    1: [{rowName: 'line4', cols: [0, 0, 0, 0, 0, 0, 0]}, {rowName: 'line5', cols: [0, 0, 0, 0, 0, 0, 0]}, {
+        rowName: 'line6',
         cols: [0, 0, 0, 0, 0, 0, 0]
     }],
-    2: [{rowName: 'ABC', cols: [0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0]}, {
-        rowName: 'WHAT A LINE',
+    2: [{rowName: 'line7', cols: [0, 0, 0]}, {rowName: 'line8', cols: [0, 0, 0]}, {
+        rowName: 'line9',
         cols: [0, 0, 0]
     }],
-    3: [{rowName: 'ABC', cols: [0, 0, 0, 0, 0, 0, 0, 0]}, {rowName: 'XYZ', cols: [0, 0, 0, 0, 0, 0, 0, 0]}, {
-        rowName: 'WHAT A LINE',
+    3: [{rowName: 'line10', cols: [0, 0, 0, 0, 0, 0, 0, 0]}, {rowName: 'line11', cols: [0, 0, 0, 0, 0, 0, 0, 0]}, {
+        rowName: 'line12',
         cols: [0, 0, 0, 0, 0, 0, 0, 0]
     }]
 }
@@ -52,6 +52,7 @@ const setRouting = () => {
             <Link to="/grid">Grid</Link>
             <Link to="/qr">QR</Link>
         </div>
+        <hr/>
         <Switch>
             <Route exact path="/"><Home/></Route>
             <Route path="/budget"><Budget title={'Budget Input Form'} callback={DisplayBudgetForms}/></Route>
@@ -79,6 +80,7 @@ const Accordian = ({name, header, counter}) => {
         // Similar to componentDidMount and componentDidUpdate:
         // console.log("cur heading: ", heading);
     }, []);
+
     // WRITE THE VALIDATION SCRIPT.
     function isNumber(evt) {
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode;
@@ -87,6 +89,7 @@ const Accordian = ({name, header, counter}) => {
             return false;
         return true;
     }
+
     let getFormDetails = (keyid) => {
         let formElm = []
         if (formKeys.indexOf(keyid) !== -1) {
@@ -94,12 +97,11 @@ const Accordian = ({name, header, counter}) => {
             let formX = forms[keyid];
             for (let fm in formX) {
                 let {rowName, cols} = formX[fm];
-                formElm.push(<form>
-                    <div className="customInputText"><span className="text-primary xlable">{rowName}</span> <span
-                        className="nestInput">{cols.map(c => <input className="text-primary" type="text"
-                                                                    defaultValue={c} onKeyDown={(event)=>isNumber(event)}/>)}</span>
-                    </div>
-                </form>)
+                formElm.push(<div className="customInputText">
+                    <span className="text-primary xlable">{rowName}</span>
+                    <span className="nestInput">{cols.map(c => <input className="text-primary" type="text"
+                                                                      defaultValue={c}/>)}</span>
+                </div>);
             }
         }
         return formElm;
@@ -156,7 +158,7 @@ const About = () => {
         callback(await res.json());
     }
     let displayUsers = () => {
-        if(users.length===0){
+        if (users.length === 0) {
             return <div><h1 className="text-danger">Loading users data.... plz wait...</h1></div>
         }
         return <div>{
@@ -174,38 +176,46 @@ const About = () => {
     )
 }
 const Grid = () => {
-    const mgrid=gr.useRef(null);
-    let loadGridData = async (e,url) => {
-        let cur=e.target;
+    const mgrid = gr.useRef(null);
+    let loadGridData = async (e, url) => {
+        let cur = e.target;
         e.preventDefault();
-        let oldTextVal=cur.innerHTML;
+        let oldTextVal = cur.innerHTML;
         // cur.innerHTML='<span class="badge bg-warning text-danger">Loading...</span>';
-        cur.innerHTML='Loading...';
+        cur.innerHTML = 'Loading...';
         let gridDiv = document.getElementById('myGrid');
-        gridDiv.innerHTML='';
+        gridDiv.innerHTML = '';
         // let res=await ax.get(url);
-        let res=await fetch(url);
-        let rowData=await res.json();
-        let colKeys=Object.keys(rowData[0]);
-        let columnDefs = colKeys.map(x=>{return {headerName: x, field: x,minWidth:150}} );
+        let res = await fetch(url);
+        let rowData = await res.json();
+        let colKeys = Object.keys(rowData[0]);
+        let columnDefs = colKeys.map(x => {
+            return {headerName: x, field: x, minWidth: 150}
+        });
         let gridOptions = {
             columnDefs: columnDefs,
             rowData: rowData,
             defaultColDef: {
-                flex:1,
+                flex: 1,
                 sortable: true,
                 filter: true,
                 resizable: true,
             },
             pagination: true,
             rowSelection: 'single',
-            onRowClicked: function(event) { console.log('A row was clicked'); },
-            onColumnResized: function(event) { console.log('A column was resized'); },
-            onGridReady: function(event) { console.log('The grid is now ready'); },
+            onRowClicked: function (event) {
+                console.log('A row was clicked');
+            },
+            onColumnResized: function (event) {
+                console.log('A column was resized');
+            },
+            onGridReady: function (event) {
+                console.log('The grid is now ready');
+            },
             // isScrollLag: function() { return false; }
         };
         new ag.Grid(gridDiv, gridOptions);
-        cur.innerHTML=oldTextVal;
+        cur.innerHTML = oldTextVal;
         // gridOptions.api.redrawRows();
         // gridOptions.columnApi.sizeColumnsToFit();
         // ag.simpleHttpRequest({url: url}).then(function(data) {
@@ -218,27 +228,33 @@ const Grid = () => {
     return (
         <div>
             <h1>Grid Contents</h1>
-            <button className="btn bg-secondary text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/albums")}>Album</button>
-            <button className="btn bg-danger text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/posts")}>Posts</button>
-            <button className="btn bg-success text-white" onClick={(e) => loadGridData(e,"https://jsonplaceholder.typicode.com/comments")}>Comments</button>
-            <div ref={mgrid} id="myGrid" style={{height: '400px', width:'100%'}} className="ag-theme-balham"></div>
+            <button className="btn bg-secondary text-white"
+                    onClick={(e) => loadGridData(e, "https://jsonplaceholder.typicode.com/albums")}>Album
+            </button>
+            <button className="btn bg-danger text-white"
+                    onClick={(e) => loadGridData(e, "https://jsonplaceholder.typicode.com/posts")}>Posts
+            </button>
+            <button className="btn bg-success text-white"
+                    onClick={(e) => loadGridData(e, "https://jsonplaceholder.typicode.com/comments")}>Comments
+            </button>
+            <div ref={mgrid} id="myGrid" style={{height: '400px', width: '100%'}} className="ag-theme-balham"></div>
         </div>
     )
 }
 const QRApp = () => {
-    let qrdiv=gr.useRef(null);
-    let qrInputVal=gr.useRef(null);
-    const makeCode=()=>{
-        let div2loadQrIn=qrdiv.current;
-        let qrInputValText=qrInputVal.current.value;
-        div2loadQrIn.innerHTML='';
-        let qrcode=new qr(div2loadQrIn,{
+    let qrdiv = gr.useRef(null);
+    let qrInputVal = gr.useRef(null);
+    const makeCode = () => {
+        let div2loadQrIn = qrdiv.current;
+        let qrInputValText = qrInputVal.current.value;
+        div2loadQrIn.innerHTML = '';
+        let qrcode = new qr(div2loadQrIn, {
             text: qrInputValText,
             width: 300,
             height: 300,
-            colorDark : "black",
-            colorLight : "white",
-            correctLevel : qr.CorrectLevel.H
+            colorDark: "black",
+            colorLight: "white",
+            correctLevel: qr.CorrectLevel.H
         });
         // qrcode.clear(); // clear the code.
         // qrcode.makeCode(qrInputValText); // make another code.
@@ -247,8 +263,10 @@ const QRApp = () => {
         <div>
             <h1>QR Contents</h1>
             <div>
-                <button className="btn btn-dark" onClick={()=>makeCode()}>Generate Code</button>
-                <div><input className="w3-input" type="text" id='qrInputVal' placeholder="enter text here" ref={qrInputVal}/></div><br/>
+                <button className="btn btn-dark" onClick={() => makeCode()}>Generate Code</button>
+                <div><input className="w3-input" type="text" id='qrInputVal' placeholder="enter text here"
+                            ref={qrInputVal}/></div>
+                <br/>
             </div>
             <div id='qrdiv' ref={qrdiv}></div>
         </div>
@@ -256,9 +274,35 @@ const QRApp = () => {
 }
 
 const Budget = ({title, callback}) => {
+    // const [formData,setFormData]=gr.useState({});
+    let submitBudget=()=>{
+        let textElms=document.getElementsByClassName('customInputText');
+        let xformObj={};
+        let formKeyText='';
+        for(let i=0;i<textElms.length;i++){
+            let children=textElms[i].childNodes;
+            formKeyText=children[0].innerHTML.toString();
+            let allInputTexts=children[1].childNodes;
+            let vals={};
+            for(let j=0;j<allInputTexts.length;j++){
+                vals['col_'+j]=j;
+                vals['val_'+j]=parseFloat(allInputTexts[j].value);
+            }
+            xformObj[formKeyText]=vals;
+        }
+        console.log(xformObj);
+        alert('check console, form data object has been generated, send this to server using fetch post command and handle response');
+    }
+    // gr.useEffect(()=>{
+    //    console.log(formData);
+    // },[])
     return (
         <div>
             <h1 className="bg-dark text-white" style={{padding: '5px'}}>{title}</h1>
+            <div>
+                <button className="btn bg-dark" onClick={()=>submitBudget()}>Submit</button>
+                <button className="btn bg-danger">Reset</button>
+            </div>
             {callback()}
         </div>
     );
