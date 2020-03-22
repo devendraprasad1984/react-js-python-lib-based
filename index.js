@@ -127,12 +127,22 @@ const Accordian = ({name, header, counter}) => {
 const DisplayBudgetForms = () => forms.names.map((x, id) => <div><Accordian counter={id} header={x}/></div>);
 
 const Home = () => {
+    const mform = gr.useRef(null);
+    let handleSubmit = (e) => {
+        console.log(mform.current, mform.current.childNodes);
+        e.preventDefault();
+    }
     return (
         <div>
             <h1>Home Contents</h1>
             <div>
                 <span className="badge bg-danger text-white">HTML5+ReactJs+Babel+CSS+Vanila JS</span>
             </div>
+            <h2>testing a way of handling input form</h2>
+            <form ref={mform} onSubmit={e => handleSubmit(e)}>
+                <input type="text"/>
+                <input type="submit" value="Submit" className="btn bg-warning"/>
+            </form>
         </div>
     )
 }
@@ -275,20 +285,20 @@ const QRApp = () => {
 
 const Budget = ({title, callback}) => {
     // const [formData,setFormData]=gr.useState({});
-    let submitBudget=()=>{
-        let textElms=document.getElementsByClassName('customInputText');
-        let xformObj={};
-        let formKeyText='';
-        for(let i=0;i<textElms.length;i++){
-            let children=textElms[i].childNodes;
-            formKeyText=children[0].innerHTML.toString();
-            let allInputTexts=children[1].childNodes;
-            let vals={};
-            for(let j=0;j<allInputTexts.length;j++){
-                vals['col_'+j]=j;
-                vals['val_'+j]=parseFloat(allInputTexts[j].value);
+    let submitBudget = () => {
+        let textElms = document.getElementsByClassName('customInputText');
+        let xformObj = {};
+        let formKeyText = '';
+        for (let i = 0; i < textElms.length; i++) {
+            let children = textElms[i].childNodes;
+            formKeyText = children[0].innerHTML.toString();
+            let allInputTexts = children[1].childNodes;
+            let vals = {};
+            for (let j = 0; j < allInputTexts.length; j++) {
+                vals['col_' + j] = j;
+                vals['val_' + j] = parseFloat(allInputTexts[j].value);
             }
-            xformObj[formKeyText]=vals;
+            xformObj[formKeyText] = vals;
         }
         console.log(xformObj);
         alert('check console, form data object has been generated, send this to server using fetch post command and handle response');
@@ -300,7 +310,7 @@ const Budget = ({title, callback}) => {
         <div>
             <h1 className="bg-dark text-white" style={{padding: '5px'}}>{title}</h1>
             <div>
-                <button className="btn bg-dark" onClick={()=>submitBudget()}>Submit</button>
+                <button className="btn bg-dark" onClick={() => submitBudget()}>Submit</button>
                 <button className="btn bg-danger">Reset</button>
             </div>
             {callback()}

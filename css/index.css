@@ -524,7 +524,12 @@ li {
     background-color: #343a40 !important;
     color: white;
 }
-
+pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+}
 
 hr {
     display: block;
