@@ -11,7 +11,7 @@ const Cat = props => <div> this is my cat of name <b>{props.name} - {props.color
 //getting global object from window global variable in browser window
 const gr = window.React;
 const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
-// const ax = window.axios;
+const ax = window.axios;
 const ag = window.agGrid;
 const {hostname, origin, href, pathname} = window.location;
 const qr = window.QRCode;
@@ -147,6 +147,40 @@ const Home = () => {
     )
 }
 
+
+//older js callbacks way, similar to return new Promise(resolve,reject), works with IE also, use axios otherwise
+const getFromWeb = function (raw, uri, resolve, reject) {
+    let req = new XMLHttpRequest();
+    req.onload = function () {
+        var data = JSON.parse(this.response);
+        if (req.status >= 200 && req.status < 400) {
+            let vals2display = raw ? data : '';
+            resolve(vals2display);
+        } else {
+            req.onerror = reject(req.statusText);
+        }
+    }
+    req.open('GET', uri, true);
+    req.setRequestHeader('Content-Type','application/json');
+    req.setRequestHeader('Access-Control-Allow-Origin','*');
+    req.send();
+}
+const Post2Web = function (uri,data, resolve, reject) {
+    let req = new XMLHttpRequest();
+    req.onreadystatechange = function () {
+        var data = JSON.parse(this.response);
+        if (req.status >= 200 && req.status < 400) {
+            let vals2display = raw ? data : '';
+            resolve(vals2display);
+        } else {
+            req.onerror = reject(req.statusText);
+        }
+    }
+    req.open('POST', uri, true);
+    req.setRequestHeader('Content-Type','application/json');
+    req.send(data);
+}
+
 const FetchFromAPIs = (url, callback) => {
     fetch(url)
         .then(response => response.json())
@@ -162,10 +196,16 @@ const About = () => {
             // console.log(data)
         });
     }, []); //to execute component render exactly once and set state of object users
-    let getUsers = async (callback) => {
+    let getUsers = (callback) => {
         // let res = await ax.get("https://jsonplaceholder.typicode.com/users");
-        let res = await fetch("https://jsonplaceholder.typicode.com/users");
-        callback(await res.json());
+        // let res = await fetch("https://jsonplaceholder.typicode.com/users");
+        // callback(await res.json());
+        ax.get("https://jsonplaceholder.typicode.com/users").then(function (res) {
+            console.log(res.data);
+            callback(res.data);
+        }).catch( function (err) {
+            console.log(err)
+        });
     }
     let displayUsers = () => {
         if (users.length === 0) {
@@ -187,24 +227,45 @@ const About = () => {
 }
 const Grid = () => {
     const mgrid = gr.useRef(null);
-    let loadGridData = async (e, url) => {
+    let loadGridData = (e, url) => {
         let cur = e.target;
         e.preventDefault();
+        // const axios_config = {
+        //     method: 'get/post',
+        //     url: 'http://webcode.me',
+        // headers:{}
+        //data:{}
+        // }
         let oldTextVal = cur.innerHTML;
         // cur.innerHTML='<span class="badge bg-warning text-danger">Loading...</span>';
         cur.innerHTML = 'Loading...';
-        let gridDiv = document.getElementById('myGrid');
-        gridDiv.innerHTML = '';
         // let res=await ax.get(url);
-        let res = await fetch(url);
-        let rowData = await res.json();
-        let colKeys = Object.keys(rowData[0]);
-        let columnDefs = colKeys.map(x => {
-            return {headerName: x, field: x, minWidth: 150}
+        // let res = await fetch(url);
+        // let rowData = await res.json();
+        // getFromWeb(true, url, function (res) {
+        //     handleGridData(res);
+        //     cur.innerHTML = oldTextVal;
+        // }, function (err) {
+        //     cur.innerHTML = 'error, check console logs...';
+        //     console.log(err);
+        // });
+        ax.get(url).then(function (res) {
+            handleGridData(res.data);
+            cur.innerHTML = oldTextVal;
+        }).catch(function (err) {
+            cur.innerHTML = 'error, check console logs, and it works in chrome...';
+            console.log(err);
         });
+    }
+    const handleGridData = (data) => {
+        let colKeys = Object.keys(data[0]);
+        let columnDefs = [];
+        for (let i = 0; i < colKeys.length; i++) {
+            columnDefs.push({headerName: colKeys[i], field: colKeys[i], minWidth: 150});
+        }
         let gridOptions = {
             columnDefs: columnDefs,
-            rowData: rowData,
+            rowData: data,
             defaultColDef: {
                 flex: 1,
                 sortable: true,
@@ -224,16 +285,10 @@ const Grid = () => {
             },
             // isScrollLag: function() { return false; }
         };
+        console.log(mgrid,gridOptions);
+        let gridDiv = document.getElementById(mgrid.current.id);
+        gridDiv.innerHTML = '';
         new ag.Grid(gridDiv, gridOptions);
-        cur.innerHTML = oldTextVal;
-        // gridOptions.api.redrawRows();
-        // gridOptions.columnApi.sizeColumnsToFit();
-        // ag.simpleHttpRequest({url: url}).then(function(data) {
-        //     let colKeys=Object.keys(data[0]);
-        //     let columnDefs = colKeys.map(x=>{return {headerName: x, field: x,minWidth:150}} );
-        //     gridOptions.api.setColumnDefs(columnDefs);
-        //     gridOptions.api.setRowData(data);
-        // });
     }
     return (
         <div>
