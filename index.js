@@ -45,22 +45,23 @@ let fKeys = Object.keys(forms);
 //stateless functional component and no need to use bind(this) and is easy
 const setRouting = () => {
     return <HashRouter>
-        <div className="bg-info">
+        <div className="bg-info sidenav">
             <Link to="/">Home</Link>
             <Link to="/budget">Budget</Link>
             <Link to="/about">About</Link>
             <Link to="/grid">Grid</Link>
             <Link to="/qr">QR</Link>
         </div>
-        <hr/>
-        <Switch>
-            <Route exact path="/"><Home/></Route>
-            <Route path="/budget"><Budget title={'Budget Input Form'} callback={DisplayBudgetForms}/></Route>
-            <Route path="/about"><About/></Route>
-            <Route path="/grid"><Grid/></Route>
-            <Route path="/qr"><QRApp/></Route>
-            <Route path="*" component={NotFound}/>
-        </Switch>
+        <div className="rightContainer">
+            <Switch>
+                <Route exact path="/"><Home/></Route>
+                <Route path="/budget"><Budget title={'Budget Input Form'} callback={DisplayBudgetForms}/></Route>
+                <Route path="/about"><About/></Route>
+                <Route path="/grid"><Grid/></Route>
+                <Route path="/qr"><QRApp/></Route>
+                <Route path="*" component={NotFound}/>
+            </Switch>
+        </div>
     </HashRouter>
 }
 
@@ -161,11 +162,11 @@ const getFromWeb = function (raw, uri, resolve, reject) {
         }
     }
     req.open('GET', uri, true);
-    req.setRequestHeader('Content-Type','application/json');
-    req.setRequestHeader('Access-Control-Allow-Origin','*');
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.setRequestHeader('Access-Control-Allow-Origin', '*');
     req.send();
 }
-const Post2Web = function (uri,data, resolve, reject) {
+const Post2Web = function (uri, data, resolve, reject) {
     let req = new XMLHttpRequest();
     req.onreadystatechange = function () {
         var data = JSON.parse(this.response);
@@ -177,7 +178,7 @@ const Post2Web = function (uri,data, resolve, reject) {
         }
     }
     req.open('POST', uri, true);
-    req.setRequestHeader('Content-Type','application/json');
+    req.setRequestHeader('Content-Type', 'application/json');
     req.send(data);
 }
 
@@ -197,13 +198,10 @@ const About = () => {
         });
     }, []); //to execute component render exactly once and set state of object users
     let getUsers = (callback) => {
-        // let res = await ax.get("https://jsonplaceholder.typicode.com/users");
-        // let res = await fetch("https://jsonplaceholder.typicode.com/users");
-        // callback(await res.json());
         ax.get("https://jsonplaceholder.typicode.com/users").then(function (res) {
             console.log(res.data);
             callback(res.data);
-        }).catch( function (err) {
+        }).catch(function (err) {
             console.log(err)
         });
     }
@@ -230,25 +228,8 @@ const Grid = () => {
     let loadGridData = (e, url) => {
         let cur = e.target;
         e.preventDefault();
-        // const axios_config = {
-        //     method: 'get/post',
-        //     url: 'http://webcode.me',
-        // headers:{}
-        //data:{}
-        // }
         let oldTextVal = cur.innerHTML;
-        // cur.innerHTML='<span class="badge bg-warning text-danger">Loading...</span>';
         cur.innerHTML = 'Loading...';
-        // let res=await ax.get(url);
-        // let res = await fetch(url);
-        // let rowData = await res.json();
-        // getFromWeb(true, url, function (res) {
-        //     handleGridData(res);
-        //     cur.innerHTML = oldTextVal;
-        // }, function (err) {
-        //     cur.innerHTML = 'error, check console logs...';
-        //     console.log(err);
-        // });
         ax.get(url).then(function (res) {
             handleGridData(res.data);
             cur.innerHTML = oldTextVal;
@@ -285,7 +266,7 @@ const Grid = () => {
             },
             // isScrollLag: function() { return false; }
         };
-        console.log(mgrid,gridOptions);
+        console.log(mgrid, gridOptions);
         let gridDiv = document.getElementById(mgrid.current.id);
         gridDiv.innerHTML = '';
         new ag.Grid(gridDiv, gridOptions);
