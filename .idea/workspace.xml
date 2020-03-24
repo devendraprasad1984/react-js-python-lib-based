@@ -4,7 +4,6 @@
     <list default="true" id="759d1464-ed16-4660-af54-ac673c94f2e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,10 +124,10 @@
       <screen x="0" y="0" width="1366" height="739" />
     </state>
     <state x="278" y="31" width="802" height="679" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.739@0.0.1366.739" timestamp="1584845267181" />
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1584940526432">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1585052641605">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1584940526432" />
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1585052641605" />
     <state width="1138" height="228" key="GridCell.Tab.0.bottom" timestamp="1584845460727">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
@@ -149,10 +148,10 @@
       <screen x="0" y="0" width="1366" height="739" />
     </state>
     <state x="187" y="4" width="992" height="732" key="SettingsEditor/0.0.1366.739@0.0.1366.739" timestamp="1584846261483" />
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1584940528110">
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1585052643635">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1584940528110" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1585052643635" />
     <state x="359" y="122" width="647" height="494" key="find.popup" timestamp="1584763254245">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
