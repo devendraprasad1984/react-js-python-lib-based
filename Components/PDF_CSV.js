@@ -22,19 +22,42 @@
             ["name2", "city2", "more info"],
             ["name2", "city2", "more info"],
         ];
+        let generateExcel=()=>{
+            let contents=[];
+            var xslData = new Blob([contents], { type: 'text/vnd.ms-excel' });
+            var uri = URL.createObjectURL(xslData);
+        }
         let generateCSV=()=>{
             let delim=',';
-            let csvContent = "data:text/csv;charset=utf-8,"
-                + rows.map(e => e.join(delim)).join("\n");
-            var encodedUri = encodeURI(csvContent);
-            // window.open(encodedUri);//option1
-            var link_download = document.createElement("a");
-            link_download.target= '_blank';
-            link_download.href= encodedUri;
-            link_download.download= "customers.csv";
-            document.body.appendChild(link_download);
-            link_download.click();
-            document.body.removeChild(link_download);
+            let csvContent = rows.map(e => e.join(delim)).join("\n");
+            var blob = new Blob([csvContent ], {
+                type : "application/csv;charset=utf-8;"
+            });
+            let fileName='customersTest.csv';
+            if (window.navigator.msSaveBlob) {
+                // FOR IE BROWSER
+                navigator.msSaveBlob(blob, fileName);
+            } else {
+                // FOR OTHER BROWSERS
+                var link = document.createElement("a");
+                var csvUrl = URL.createObjectURL(blob);
+                link.href = csvUrl;
+                link.target = '_blank';
+                link.style = "visibility:hidden";
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+            //
+            // // window.open(encodedUri);//option1
+            // var link_download = document.createElement("a");
+            // link_download.target= '_blank';
+            // link_download.href= encodedUri;
+            // link_download.download= "customers.csv";
+            // document.body.appendChild(link_download);
+            // link_download.click();
+            // document.body.removeChild(link_download);
         }
 
         let generatePDF=()=>{
