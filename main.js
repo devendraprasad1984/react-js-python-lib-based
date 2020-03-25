@@ -1,21 +1,12 @@
 'use strict';
-//in es6 support for implicit return as arrow function doesnt need {} or return for single statements
-//this is statless component, Functional Components (Arrow Function from ES6)
-const Cat = props => <div> this is my cat of name <b>{props.name} - {props.color}</b></div>;
-// React Higher-Order Component: function takes a compoent and returns new component used to "component logic reuse". eg redux connect is HOC or pure function
-//dont mutate original component in HOC rather enhance it using composition
-// eg. const EnhancedComponent = enhance(WrappedComponent);
-// //basic react classes would go here
-//this is stateful component, class bases used state
-
-//getting global object from window global variable in browser window
 const gr = window.React;
+const req = window.requirejs;
 const {HashRouter, Switch, Route, Link} = window.ReactRouterDOM;
 const ax = window.axios;
 const ag = window.agGrid;
 const {hostname, origin, href, pathname} = window.location;
 const qr = window.QRCode;
-const fetch = window.fetch;
+const fetch = window.fetch
 
 let forms = {
     names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
@@ -41,6 +32,26 @@ let forms = {
 }
 let fKeys = Object.keys(forms);
 
+const Home = () => {
+    const mform = gr.useRef(null);
+    let handleSubmit = (e) => {
+        console.log(mform.current, mform.current.childNodes);
+        e.preventDefault();
+    }
+    return (
+        <div>
+            <h1>Home Contents</h1>
+            <div>
+                <span className="badge bg-danger text-white">HTML5+ReactJs+Babel+CSS+Vanila JS</span>
+            </div>
+            <h2>testing a way of handling input form</h2>
+            <form ref={mform} onSubmit={e => handleSubmit(e)}>
+                <input type="text"/>
+                <input type="submit" value="Submit" className="btn bg-warning"/>
+            </form>
+        </div>
+    )
+}
 
 //stateless functional component and no need to use bind(this) and is easy
 const setRouting = () => {
@@ -73,7 +84,6 @@ const NotFound = () => {
         </div>
     )
 }
-
 const Accordian = ({name, header, counter}) => {
     const [heading, setHeading] = gr.useState(header); //similar to this.setState in class based component
     const [formKeys, setFormKeys] = gr.useState(fKeys);
@@ -124,28 +134,41 @@ const Accordian = ({name, header, counter}) => {
         </div>
     )
 }
-
 const DisplayBudgetForms = () => forms.names.map((x, id) => <div><Accordian counter={id} header={x}/></div>);
 
-const Home = () => {
-    const mform = gr.useRef(null);
-    let handleSubmit = (e) => {
-        console.log(mform.current, mform.current.childNodes);
-        e.preventDefault();
+const Budget = ({title, callback}) => {
+    // const [formData,setFormData]=gr.useState({});
+    let submitBudget = () => {
+        let textElms = document.getElementsByClassName('customInputText');
+        let xformObj = {};
+        let formKeyText = '';
+        for (let i = 0; i < textElms.length; i++) {
+            let children = textElms[i].childNodes;
+            formKeyText = children[0].innerHTML.toString();
+            let allInputTexts = children[1].childNodes;
+            let vals = {};
+            for (let j = 0; j < allInputTexts.length; j++) {
+                vals['col_' + j] = j;
+                vals['val_' + j] = parseFloat(allInputTexts[j].value);
+            }
+            xformObj[formKeyText] = vals;
+        }
+        console.log(xformObj);
+        alert('check console, form data object has been generated, send this to server using fetch post command and handle response');
     }
+    // gr.useEffect(()=>{
+    //    console.log(formData);
+    // },[])
     return (
         <div>
-            <h1>Home Contents</h1>
+            <h1 className="bg-dark text-white" style={{padding: '5px'}}>{title}</h1>
             <div>
-                <span className="badge bg-danger text-white">HTML5+ReactJs+Babel+CSS+Vanila JS</span>
+                <button className="btn bg-dark" onClick={() => submitBudget()}>Submit</button>
+                <button className="btn bg-danger">Reset</button>
             </div>
-            <h2>testing a way of handling input form</h2>
-            <form ref={mform} onSubmit={e => handleSubmit(e)}>
-                <input type="text"/>
-                <input type="submit" value="Submit" className="btn bg-warning"/>
-            </form>
+            {callback()}
         </div>
-    )
+    );
 }
 
 
@@ -319,48 +342,8 @@ const QRApp = () => {
     )
 }
 
-const Budget = ({title, callback}) => {
-    // const [formData,setFormData]=gr.useState({});
-    let submitBudget = () => {
-        let textElms = document.getElementsByClassName('customInputText');
-        let xformObj = {};
-        let formKeyText = '';
-        for (let i = 0; i < textElms.length; i++) {
-            let children = textElms[i].childNodes;
-            formKeyText = children[0].innerHTML.toString();
-            let allInputTexts = children[1].childNodes;
-            let vals = {};
-            for (let j = 0; j < allInputTexts.length; j++) {
-                vals['col_' + j] = j;
-                vals['val_' + j] = parseFloat(allInputTexts[j].value);
-            }
-            xformObj[formKeyText] = vals;
-        }
-        console.log(xformObj);
-        alert('check console, form data object has been generated, send this to server using fetch post command and handle response');
-    }
-    // gr.useEffect(()=>{
-    //    console.log(formData);
-    // },[])
-    return (
-        <div>
-            <h1 className="bg-dark text-white" style={{padding: '5px'}}>{title}</h1>
-            <div>
-                <button className="btn bg-dark" onClick={() => submitBudget()}>Submit</button>
-                <button className="btn bg-danger">Reset</button>
-            </div>
-            {callback()}
-        </div>
-    );
-}
-
 const App = () => {
     return <div>{setRouting()}</div>;
 }
-
-// ReactDOM.render(e(ReactDiv1Component), document.querySelector('#reactDiv1'));
-// grdom.render(<Budget title={'Budget Input Form'} name="global page heading" callback={DisplayBudgetForms}/>, document.getElementById('root'));
 window.ReactDOM.render(<App/>, document.getElementById('root'));
-// let icomp1=<ReactDiv2Component age='20'/>;
-// ReactDOM.render(icomp1, document.getElementById('reactDiv2'));
-// ReactDOM.render(<ReactDiv3Component/>, document.getElementById('reactDiv3'));
+
