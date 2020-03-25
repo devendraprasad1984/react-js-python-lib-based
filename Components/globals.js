@@ -6,6 +6,7 @@
     g_dp_app.extend('ag' , window.agGrid);
     g_dp_app.extend('loc' , window.location);
     g_dp_app.extend('fetch' , window.fetch);
+    g_dp_app.extend('pdf' , window.jsPDF);
     g_dp_app.extend('forms', {
         names: ['Project Details', 'Capex/Revx', 'Costs', 'Benefits'],
         0: [{rowName: 'Net Interest Income', cols: [0, 0, 0, 0, 0]}, {
