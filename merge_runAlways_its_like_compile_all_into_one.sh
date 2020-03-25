@@ -36,7 +36,7 @@ echo "$target has been generated"
 loop_over_files_order(){
 for i in "${filesOrder[@]}"
 do
-    if [[ $fl != *"_NA_"* ]];  then
+    if [[ $i != *"_NA_"* ]];  then
       fl=$dir/$i.js
       echo "processing...$fl"
       cat $fl >> $target

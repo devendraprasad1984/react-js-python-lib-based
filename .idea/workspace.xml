@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759d1464-ed16-4660-af54-ac673c94f2e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Components/About.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Accordian.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/BudgetForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Grid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Helpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/NotFound.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/QR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Routing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/globals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/require.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merge.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/core_NA_.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/settings_NA_.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index_NA_.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainLoad.js" beforeDir="false" afterPath="$PROJECT_DIR$/mainLoad.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testX.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/merge_runAlways_its_like_compile_all_into_one.sh" beforeDir="false" afterPath="$PROJECT_DIR$/merge_runAlways_its_like_compile_all_into_one.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,10 +139,10 @@
       <screen x="0" y="0" width="1366" height="739" />
     </state>
     <state x="278" y="31" width="802" height="679" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.739@0.0.1366.739" timestamp="1584845267181" />
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1585066032023">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1585113973332">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1585066032023" />
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1585113973332" />
     <state width="1138" height="228" key="GridCell.Tab.0.bottom" timestamp="1584845460727">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
@@ -186,10 +167,10 @@
       <screen x="0" y="0" width="1366" height="739" />
     </state>
     <state x="187" y="4" width="992" height="732" key="SettingsEditor/0.0.1366.739@0.0.1366.739" timestamp="1584846261483" />
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1585066033115">
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1585113974956">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1585066033115" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1585113974956" />
     <state x="359" y="122" width="647" height="494" key="find.popup" timestamp="1584763254245">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
