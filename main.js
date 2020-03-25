@@ -13,7 +13,7 @@ var g_dp_app=(function () {
             s.crossOrigin = 'anonymous';
             s.src = fName;
             var body = document.getElementsByTagName('body')[0];
-            body.append(s);
+            body.appendChild(s);
         }
     }
     fnLoad(libs.js);
