@@ -29,8 +29,8 @@
             var encodedUri = encodeURI(csvContent);
             // window.open(encodedUri);//option1
             var link_download = document.createElement("a");
-            link_download.setAttribute("href", encodedUri);
-            link_download.setAttribute("download", "customers.csv");
+            link_download.href= encodedUri;
+            link_download.download= "customers.csv";
             document.body.appendChild(link_download);
             link_download.click();
             document.body.removeChild(link_download);
