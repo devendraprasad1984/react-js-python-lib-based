@@ -1,5 +1,5 @@
 (function(){
-    const {gr}=g_dp_app;
+    const {gr,qr}=g_dp_app;
     const QRApp = () => {
         let qrdiv = gr.useRef(null);
         let qrInputVal = gr.useRef(null);
