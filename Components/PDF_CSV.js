@@ -81,9 +81,10 @@
         }
         return (
             <div>
-                <h1>PDF/CSV Exports goes here</h1>
-                <button className="btn bg-warning text-danger" onClick={()=>generateCSV()}>Generate CSV</button>
-                <button className="btn bg-light text-primary" onClick={()=>generatePDF()}>Generate PDF</button>
+                <h1 className="ui label ribbon">PDF/CSV Exports goes here</h1>
+                <hr/>
+                <button className="ui button primary" onClick={()=>generateCSV()}>Generate CSV</button>
+                <button className="ui button red" onClick={()=>generatePDF()}>Generate PDF</button>
                 <div>
                     {displayRows()}
                 </div>

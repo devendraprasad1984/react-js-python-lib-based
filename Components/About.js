@@ -29,7 +29,8 @@
         }
         return (
             <div>
-                <h1>About Contents</h1>
+                <h1 className="ui label ribbon">About Contents</h1>
+                <hr/>
                 {displayUsers()}
             </div>
         )

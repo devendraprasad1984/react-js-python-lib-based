@@ -2,8 +2,9 @@
     const NotFound = () => {
         return (
             <div>
-                <h1>Page Not Found</h1><br/>
-                <h2><a href="/">Home</a></h2>
+                <h1 className="ui label ribbon">Page Not Found</h1>
+                <hr/>
+                <a href="/">Home</a>
             </div>
         )
     }

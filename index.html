@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <title>basic react test using react lib js file</title>
-    <link rel="stylesheet" href="css/index.css" />
+<!--    <link rel="stylesheet" href="css/index.css" />-->
+    <link rel="stylesheet" href="lib/semantic.min.css" />
+    <link rel="stylesheet" href="css/xsem.css" />
 </head>
-<body>
-<div class="bg-secondary text-white headerBar">
-    <h1 style="float: left">Investments</h1>
-    <h1 style="float: right; ">Welcome, Devendra</h1>
+<body class="ui">
+<div class="rightContainer ui inverted top attached">
+    <span style="padding-left: 70px;"><h1 class="ui label green">Investments App - RBS</h1></span>
+    <span style="padding-left: 70px"><h1 class="ui label red">Welcome, Devendra</h1></span>
 </div>
-<div style="padding: 60px; position: relative">
-    <div id="root"><span class="text-primary bg-dark" style="font-size: 50pt;">Loading, plz wait....</span></div>
+<div style="padding: 60px;">
+    <div id="root"><span class="ui pointing red basic label" style="font-size: 30pt;">Loading, plz wait....</span></div>
 </div>
 
 
@@ -32,6 +34,7 @@
 <script crossorigin="anonymous" src="lib/qrcode.min.js"></script>
 <script crossorigin="anonymous" src="lib/jspdf.min.js"></script>
 
+<!--<script crossorigin="anonymous" src="lib/semantic.min.js"></script>-->
 <script crossorigin="anonymous" src="lib/polyfill.min.js?features=fetch&flags=gated"></script>
 <!--<script type="text/babel" crossorigin="anonymous" src="index.js"></script>-->
 

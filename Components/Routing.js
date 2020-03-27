@@ -5,13 +5,13 @@
     const setRouting = () => {
         const {Home,Budget,About,Grid,QRApp,NotFound,DisplayBudgetForms,PDF_CSV}=g_dp_app;
         return <HashRouter>
-            <div className="bg-info sidenav">
-                <Link to="/">Home</Link>
-                <Link to="/budget">Budget</Link>
-                <Link to="/about">About</Link>
-                <Link to="/grid">Grid</Link>
-                <Link to="/qr">QR</Link>
-                <Link to="/pdf_csv">PDF-CSV</Link>
+            <div className="ui left visible vertical sidebar labeled icon menu">
+                <Link to="/" className="item">Home</Link>
+                <Link to="/budget" className="item">Budget</Link>
+                <Link to="/about" className="item">About</Link>
+                <Link to="/grid" className="item">Grid</Link>
+                <Link to="/qr" className="item">QR</Link>
+                <Link to="/pdf_csv" className="item">PDF-CSV</Link>
             </div>
             <div className="rightContainer">
                 <Switch>
