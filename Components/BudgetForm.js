@@ -27,11 +27,11 @@
         // },[])
         return (
             <div>
-                <h1 className="ui label ribbon primary">{title}</h1>
+                <h1 className="badge ribbon">{title}</h1>
                 <hr/>
                 <div>
-                    <button className="ui button black" onClick={() => submitBudget()}>Submit</button>
-                    <button className="ui button red">Reset</button>
+                    <button className="btn black" onClick={() => submitBudget()}>Submit</button>
+                    <button className="btn red">Reset</button>
                 </div>
                 {callback()}
             </div>

@@ -2,14 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759d1464-ed16-4660-af54-ac673c94f2e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/ag-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/ag-theme-balham.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/w3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Accordian.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Accordian.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/BudgetForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/BudgetForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotFound.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/PDF_CSV.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/PDF_CSV.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/QR.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/QR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/semantic.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/semantic.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/semantic.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/semantic.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ag-grid-community.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/axios.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/babel-browser.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/jspdf.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/polyfill.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/react-redux.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/react-router-dom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/react-router.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/react.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/reactdom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/redux.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/reduxBaseTest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/require.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/semantic.min.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +162,42 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/dp/deven/dpgit/react-js-python/css" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
@@ -155,10 +210,10 @@
       <screen x="0" y="0" width="1366" height="739" />
     </state>
     <state x="278" y="31" width="802" height="679" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.739@0.0.1366.739" timestamp="1584845267181" />
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1585322599735">
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2" timestamp="1585323624769">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1585322599735" />
+    <state x="322" y="0" width="714" height="739" key="CommitChangelistDialog2/0.0.1366.739@0.0.1366.739" timestamp="1585323624769" />
     <state x="100" y="100" width="1158" height="539" key="DiffContextDialog" timestamp="1585141348053">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
@@ -187,21 +242,25 @@
       <screen x="0" y="0" width="1366" height="739" />
     </state>
     <state x="187" y="4" width="992" height="732" key="SettingsEditor/0.0.1366.739@0.0.1366.739" timestamp="1584846261483" />
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1585322601443">
+    <state x="528" y="288" width="294" height="165" key="VCS.ChangelistChooser" timestamp="1585362551061">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1585322601443" />
-    <state x="269" y="9" width="979" height="681" key="find.popup" timestamp="1585323496469">
+    <state x="528" y="288" width="294" height="165" key="VCS.ChangelistChooser/0.0.1366.739@0.0.1366.739" timestamp="1585362551061" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2" timestamp="1585323626020">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="269" y="9" width="979" height="681" key="find.popup/0.0.1366.739@0.0.1366.739" timestamp="1585323496469" />
+    <state x="278" y="105" width="802" height="530" key="Vcs.Push.Dialog.v2/0.0.1366.739@0.0.1366.739" timestamp="1585323626020" />
+    <state x="270" y="8" width="979" height="681" key="find.popup" timestamp="1585365198591">
+      <screen x="0" y="0" width="1366" height="739" />
+    </state>
+    <state x="270" y="8" width="979" height="681" key="find.popup/0.0.1366.739@0.0.1366.739" timestamp="1585365198591" />
     <state x="346" y="161" key="run.anything.popup" timestamp="1584847881925">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
     <state x="346" y="161" key="run.anything.popup/0.0.1366.739@0.0.1366.739" timestamp="1584847881925" />
-    <state x="346" y="60" width="672" height="678" key="search.everywhere.popup" timestamp="1585323498331">
+    <state x="346" y="60" width="672" height="678" key="search.everywhere.popup" timestamp="1585367415567">
       <screen x="0" y="0" width="1366" height="739" />
     </state>
-    <state x="346" y="60" width="672" height="678" key="search.everywhere.popup/0.0.1366.739@0.0.1366.739" timestamp="1585323498331" />
+    <state x="346" y="60" width="672" height="678" key="search.everywhere.popup/0.0.1366.739@0.0.1366.739" timestamp="1585367415567" />
   </component>
 </project>

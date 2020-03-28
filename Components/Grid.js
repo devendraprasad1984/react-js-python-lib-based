@@ -50,15 +50,15 @@
         }
         return (
             <div>
-                <h1 className="ui label ribbon">Grid Contents</h1>
+                <h1 className="badge ribbon">Grid Contents</h1>
                 <hr/>
-                <button className="ui button secondary"
+                <button className="btn secondary"
                         onClick={(e) => loadGridData(e, "https://jsonplaceholder.typicode.com/albums")}>Album
                 </button>
-                <button className="ui button secondary"
+                <button className="btn secondary"
                         onClick={(e) => loadGridData(e, "https://jsonplaceholder.typicode.com/posts")}>Posts
                 </button>
-                <button className="ui button red"
+                <button className="btn red"
                         onClick={(e) => loadGridData(e, "https://jsonplaceholder.typicode.com/comments")}>Comments
                 </button>
                 <div ref={mgrid} id="myGrid" style={{height: '400px', width: '100%'}} className="ag-theme-balham"></div>

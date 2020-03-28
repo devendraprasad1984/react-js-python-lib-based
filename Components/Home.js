@@ -9,17 +9,17 @@
         }
         return (
             <div>
-                <h1 className="ui label ribbon primary">Home Contents</h1>
+                <h1 className="badge ribbon">Home Contents</h1>
                 <hr/>
                 <div>
-                    <span className="ui label black">HTML5+ReactJs+Babel+CSS+Vanila JS</span>
+                    <span className="badge black">HTML5+ReactJs+Babel+CSS+Vanila JS</span>
                 </div>
                 <h2>testing a way of handling input form</h2>
                 <form ref={mform} onSubmit={e => handleSubmit(e)}>
                     <input type="text"/>
-                    <input type="submit" value="Submit" className="ui button black"/>
+                    <input type="submit" value="Submit" className="btn black"/>
                 </form>
-                <h1 className="ui button orange" onClick={()=>{alert('I am loving it - wondering how cool it is')}}>Final Click</h1>
+                <h1 className="btn orange" onClick={()=>{alert('I am loving it - wondering how cool it is')}}>Final Click</h1>
             </div>
         )
     }

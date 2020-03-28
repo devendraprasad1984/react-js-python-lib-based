@@ -24,9 +24,9 @@
                 let formX = forms[keyid];
                 for (let fm in formX) {
                     let {rowName, cols} = formX[fm];
-                    formElm.push(<div className="">
-                        <span className="ui label primary">{rowName}</span>
-                        <span className="nestInput">{cols.map(c => <input className="ui text red" type="text"
+                    formElm.push(<div className="xinput">
+                        <span className="badge blue">{rowName}</span>
+                        <span className="nestInput">{cols.map(c => <input className="text-primary right" type="text"
                                                                           defaultValue={c}/>)}</span>
                     </div>);
                 }
@@ -38,13 +38,13 @@
         }
         return (
             <div>
-                <h1 className="ui label grey" style={{width: '100%', textAlign: 'left'}}><span
-                    className="ui label green">{counter + 1} - {heading}</span></h1>
+                <h1 className="badge grey" style={{width: '100%', textAlign: 'left'}}><span
+                    className="badge green">{counter + 1} - {heading}</span></h1>
                 <div className="ui form">
-                    <div className="ui container fluid segment">
+                    <div className="box">
                         {getFormDetails(counter.toString())}
-                        <button className="ui button primary" onClick={() => what2save()}>Save</button>
-                        <button className="ui button black">Next</button>
+                        <button className="btn primary" onClick={() => what2save()}>Save</button>
+                        <button className="btn black">Next</button>
                     </div>
                     <br/>
                 </div>

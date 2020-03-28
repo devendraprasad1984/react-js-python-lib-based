@@ -18,7 +18,7 @@
         }
         let displayUsers = () => {
             if (users.length === 0) {
-                return <div><h1 className="text-danger">Loading users data.... plz wait...</h1></div>
+                return <div><h1 className="red">Loading users data.... plz wait...</h1></div>
             }
             return <div>{
                 users.map((x, id) => <div key={"disp_user_" + id}>
@@ -29,7 +29,7 @@
         }
         return (
             <div>
-                <h1 className="ui label ribbon">About Contents</h1>
+                    <h1 className="badge">About Contents</h1>
                 <hr/>
                 {displayUsers()}
             </div>

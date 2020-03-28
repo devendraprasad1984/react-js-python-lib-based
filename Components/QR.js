@@ -20,10 +20,10 @@
         }
         return (
             <div>
-                <h1 className="ui label ribbon">QR Contents</h1>
+                <h1 className="badge ribbon">QR Contents</h1>
                 <hr/>
                 <div>
-                    <button className="ui button black" onClick={() => makeCode()}>Generate Code</button>
+                    <button className="btn black" onClick={() => makeCode()}>Generate Code</button>
                     <div><input className="w3-input" type="text" id='qrInputVal' placeholder="enter text here"
                                 ref={qrInputVal}/></div>
                     <br/>
