@@ -25,8 +25,8 @@
                 for (let fm in formX) {
                     let {rowName, cols} = formX[fm];
                     formElm.push(<div className="xinput">
-                        <span className="badge blue">{rowName}</span>
-                        <span className="nestInput">{cols.map(c => <input className="text-primary right" type="text"
+                        <span>{rowName}</span>
+                        <span className="nestInput">{cols.map(c => <input className="text-primary" type="text"
                                                                           defaultValue={c}/>)}</span>
                     </div>);
                 }

@@ -5,7 +5,7 @@
     const Budget = ({title, callback}) => {
         // const [formData,setFormData]=gr.useState({});
         let submitBudget = () => {
-            let textElms = document.getElementsByClassName('customInputText');
+            let textElms = document.getElementsByClassName('xinput');
             let xformObj = {};
             let formKeyText = '';
             for (let i = 0; i < textElms.length; i++) {
