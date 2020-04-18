@@ -137,18 +137,18 @@ section {
     width: 100%;
 }
 .ribbon {
+    width: 100%;
     position: relative;
-    margin: 0;
+    text-align: left;
     min-width: -webkit-max-content;
     min-width: -moz-max-content;
     min-width: max-content;
-    border-radius: 0 .28571429rem .28571429rem 0;
-    border-color: rgba(0, 0, 0, .15);
+    border-radius: 2px;
     left: calc(-1rem - 1.2em);
-    margin-right: -1.2em;
-    padding-left: calc(1rem + 1.2em);
+    margin: 1.2em;
+    padding: 2px;
     font-size: 14px;
-    padding-right: 1.2em;
+    border:2px solid #8a73ff;
 }
 
 .ribbon:after {
@@ -182,16 +182,16 @@ section {
 }
 .badge {
     display: inline-block;
-    padding: .25em .4em;
-    /*font-size: 90%;*/
+    padding: .5em .5em;
     font-size: inherit;
-    font-weight: 500;
-    line-height: 1;
+    font-weight: 800;
+    line-height: 1.2em;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25rem;
-    border: 1px solid #000
+    border-radius: .5rem;
+    border: 1px solid #000;
+    opacity: .90;
 }
 
 .xlable {

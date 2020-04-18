@@ -29,8 +29,7 @@
         }
         return (
             <div>
-                    <h1 className="badge">About Contents</h1>
-                <hr/>
+                    <h1 className="ribbon">About Contents</h1>
                 {displayUsers()}
             </div>
         )

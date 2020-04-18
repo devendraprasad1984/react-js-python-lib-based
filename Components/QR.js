@@ -20,7 +20,7 @@
         }
         return (
             <div>
-                <h1 className="badge ribbon">QR Contents</h1>
+                <h1 className="ribbon">QR Contents</h1>
                 <hr/>
                 <div>
                     <button className="btn black" onClick={() => makeCode()}>Generate Code</button>

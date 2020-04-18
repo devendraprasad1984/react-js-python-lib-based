@@ -27,8 +27,7 @@
         // },[])
         return (
             <div>
-                <h1 className="badge ribbon">{title}</h1>
-                <hr/>
+                <h1 className="ribbon">{title}</h1>
                 <div>
                     <button className="btn black" onClick={() => submitBudget()}>Submit</button>
                     <button className="btn red">Reset</button>

@@ -9,8 +9,7 @@
         }
         return (
             <div>
-                <h1 className="badge ribbon">Home Contents</h1>
-                <hr/>
+                <h1 className="ribbon">Home Contents</h1>
                 <div>
                     <span className="badge black">HTML5+ReactJs+Babel+CSS+Vanila JS</span>
                 </div>

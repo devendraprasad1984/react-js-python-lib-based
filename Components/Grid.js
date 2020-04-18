@@ -50,8 +50,7 @@
         }
         return (
             <div>
-                <h1 className="badge ribbon">Grid Contents</h1>
-                <hr/>
+                <h1 className="ribbon">Grid Contents</h1>
                 <button className="btn secondary"
                         onClick={(e) => loadGridData(e, "https://jsonplaceholder.typicode.com/albums")}>Album
                 </button>

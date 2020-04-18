@@ -2,8 +2,7 @@
     const NotFound = () => {
         return (
             <div>
-                <h1 className="badge ribbon">Page Not Found</h1>
-                <hr/>
+                <h1 className="ribbon">Page Not Found</h1>
                 <a href="/">Home</a>
             </div>
         )
