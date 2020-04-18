@@ -3,19 +3,6 @@
     const Accordian = ({name, header, counter}) => {
         const [heading, setHeading] = gr.useState(header); //similar to this.setState in class based component
         const [formKeys, setFormKeys] = gr.useState(fKeys);
-        // gr.useEffect(() => {
-        //     // Similar to componentDidMount and componentDidUpdate:
-        //     // console.log("cur heading: ", heading);
-        // }, []);
-
-        // // WRITE THE VALIDATION SCRIPT.
-        // function isNumber(evt) {
-        //     var iKeyCode = (evt.which) ? evt.which : evt.keyCode;
-        //     console.log(iKeyCode);
-        //     if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
-        //         return false;
-        //     return true;
-        // }
 
         let getFormDetails = (keyid) => {
             let formElm = []

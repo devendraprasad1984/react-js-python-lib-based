@@ -98,17 +98,21 @@ pre {
     z-index: 1000;
 }
 
-.xinput span{
-    width: 150px;
+.xinput span:first-child{
+    margin-top: 2px;
+    width: 80px;
     text-align: left;
+    margin-right:5px;
+    display:inline-block;
+    word-wrap: break-word;
+    word-break: break-all;
 }
-.xinput input[type=text] {
-    width: 50px;
+.xinput input[type='text'] {
+    width: 40px;
+    font-size: 9px;
     padding: 1px;
-    margin: 2px;
+    margin: 1px;
     text-align: right;
-    left: 50%;
-    radius:2px;
 }
 
 @-ms-viewport {
@@ -173,7 +177,7 @@ section {
     position: absolute;
     padding: 5px;
 }
-.nestInput{
+.nestInput:first-child{
     margin-left:10px;
 }
 .badge {
@@ -464,6 +468,7 @@ p {
     line-height: .75rem;
     border-radius: .25rem;
     cursor: pointer;
+    opacity: .75;
 }
 
 .btn:hover {
