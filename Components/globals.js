@@ -1,5 +1,6 @@
 (function(){
     'use strict';
+    g_dp_app.extend('linksArr' , ['/','/budget','/about','/grid','/qr','/pdf_csv']);
     g_dp_app.extend('gr' , window.React);
     g_dp_app.extend('ts' , window.toastr);
     g_dp_app.extend('gdom' , window.ReactRouterDOM);

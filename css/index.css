@@ -18,6 +18,8 @@ html,body{
 
 *, ::after, ::before {
     box-sizing: border-box;
+    /*padding: 0px 1px 1px 1px;*/
+    /*margin: 0px 1px 1px 2px;*/
 }
 
 
@@ -191,7 +193,7 @@ section {
     vertical-align: baseline;
     border-radius: .5rem;
     border: 1px solid #000;
-    opacity: .90;
+    /*opacity: 1;*/
 }
 
 .xlable {
@@ -468,7 +470,7 @@ p {
     line-height: .75rem;
     border-radius: .25rem;
     cursor: pointer;
-    opacity: .75;
+    /*opacity: .90;*/
 }
 
 .btn:hover {
@@ -663,13 +665,51 @@ pre code {
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: inherit;
+    font-size: 14px;
     display: block;
     color:white;
 }
-.sidenav a:hover {
-    color: red;
+.sidenav a:hover,.sidenav a.active  {
+    color: #8a73ff;
+    background-color: white;
+    opacity: .65;
+    font-weight: bolder;
 }
+
+.accordion {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.accordion.active {
+    background-color: #ccc;
+}
+
+.line{
+    overflow-x:hidden;
+    width: 100%;
+    border-bottom: 1px solid #8a8a8a;
+}
+.line:first-child{
+    font-weight: bolder;
+    font-size: 14px;
+    background-color: #f7f7f7;
+}
+.line span{
+    display: inline-block;
+    width: 150px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.panel {
+    /*padding: 0 18px;*/
+    display: none;}
 
 hr {
     -webkit-box-sizing: content-box;

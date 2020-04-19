@@ -18,10 +18,11 @@
         }
         let displayUsers = () => {
             if (users.length === 0) {
-                return <div><h1 className="red">Loading users data.... plz wait...</h1></div>
+                return <div><h2 className="red">Loading users data, plz wait...</h2></div>
             }
+            users.unshift({name:'NAME',email:'EMAIL',username:'USER NAME',address:{zipcode:'ZIP'}});
             return <div>{
-                users.map((x, id) => <div key={"disp_user_" + id}>
+                users.map((x, id) => <div  className='line' key={"disp_user_" + id}>
                     <span>{x.name}</span> <span>{x.email}</span> <span>{x.username}</span><span>{x.address.zipcode}</span>
                 </div>)
             }
