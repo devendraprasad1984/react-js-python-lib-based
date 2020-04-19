@@ -1,8 +1,16 @@
 (function () {
-    const {gr, forms, fKeys} = g_dp_app;
+    const {gr, forms, fKeys,ts} = g_dp_app;
     const Accordian = ({name, header, counter}) => {
         const [heading, setHeading] = gr.useState(header); //similar to this.setState in class based component
         const [formKeys, setFormKeys] = gr.useState(fKeys);
+        let handleChange=(e)=>{
+            let {name,dataset,value}=e.target;
+            let {info}=dataset;
+            console.log(name,info,value);
+        }
+        let what2save = () => {
+            ts.info('check console, saved');
+        }
 
         let getFormDetails = (keyid) => {
             let formElm = []
@@ -13,15 +21,12 @@
                     let {rowName, cols} = formX[fm];
                     formElm.push(<div className="xinput">
                         <span>{rowName}</span>
-                        <span className="nestInput">{cols.map(c => <input className="text-primary" type="text"
-                                                                          defaultValue={c}/>)}</span>
+                        <span className="nestInput">{cols.map((c,i) => <input name={'ip_'+i+fm} data-info={[fm,rowName,i]} className="text-primary" type="text"
+                                                                          defaultValue={c} onChange={(e)=>handleChange(e)}/>)}</span>
                     </div>);
                 }
             }
             return formElm;
-        }
-        let what2save = () => {
-            console.log('what to save is', heading);
         }
         return (
             <div>

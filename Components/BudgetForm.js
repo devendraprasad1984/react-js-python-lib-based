@@ -1,5 +1,5 @@
 (function () {
-    const {forms,Accordian}=g_dp_app;
+    const {forms,Accordian,ts}=g_dp_app;
 
     const DisplayBudgetForms = () => forms.names.map((x, id) => <div><Accordian counter={id} header={x}/></div>);
     const Budget = ({title, callback}) => {
@@ -20,7 +20,8 @@
                 xformObj[formKeyText] = vals;
             }
             console.log(xformObj);
-            alert('check console, form data object has been generated, send this to server using fetch post command and handle response');
+            ts.success('check console, form data object has been generated, send this to server using fetch post command and handle response');
+            ts.error('contact admin');
         }
         // gr.useEffect(()=>{
         //    console.log(formData);
@@ -30,7 +31,7 @@
                 <h1 className="ribbon">{title}</h1>
                 <div>
                     <button className="btn black" onClick={() => submitBudget()}>Submit</button>
-                    <button className="btn red">Reset</button>
+                    <button className="btn red" onClick={() => ts.info('resetting, ok!')}>Reset</button>
                 </div>
                 {callback()}
             </div>
