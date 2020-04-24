@@ -2,7 +2,7 @@ var g_dp_app=(function () {
     'use strict'
     const libs = {
         jsdir:'Components',
-        js: ["globals", "Home", "Routing", "NotFound", "Accordian", "BudgetForm", "Helpers", "About", "Grid","PDF_CSV", "QR","App"]
+        js: ["globals", "Home", "Routing", "NotFound","Modal", "Accordian", "BudgetForm", "Helpers", "About", "Grid","PDF_CSV", "QR","App"]
     };
     function fnLoad(arr) {
         let jsDir=libs.jsdir;

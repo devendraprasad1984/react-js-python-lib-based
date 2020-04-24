@@ -102,7 +102,7 @@ pre {
 
 .xinput span:first-child{
     margin-top: 2px;
-    width: 80px;
+    width: 15%;
     text-align: left;
     margin-right:5px;
     display:inline-block;
@@ -110,11 +110,12 @@ pre {
     word-break: break-all;
 }
 .xinput input[type='text'] {
-    width: 40px;
+    width: 8%;
     font-size: 9px;
     padding: 1px;
     margin: 1px;
     text-align: right;
+    display:inline-block;
 }
 
 @-ms-viewport {
@@ -541,26 +542,36 @@ li {
 }
 
 .overlay {
-    height: 100%;
-    width: 0;
+    height: 60%;
+    width: 50%;
     position: fixed;
     z-index: 1000;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    top: 20%;
+    left: 20%;
+    background-color: gray;
+    opacity: 1;
     overflow-x: hidden;
-    display: none;
-    /*transition: 0.5s;*/
+    /*display: none;*/
+    transition: 0.5s;
 }
 
 .overlay-content {
     position: relative;
-    /*top: 1%;*/
-    width: calc(100% - 150px);
-    padding: 30px;
-    margin-top: 5px;
+    width: 95%;
+    height: 80%;
+    padding: 5%;
+    margin: 3%;
     overflow-x: hidden;
     overflow-y: auto;
+    color:black;
+    background-color: white;
+}
+.overlay .button-row{
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    display: inline-block;
+    margin:2%;
 }
 
 .click {

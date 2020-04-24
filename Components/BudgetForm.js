@@ -1,8 +1,9 @@
 (function () {
-    const {forms,Accordian,ts}=g_dp_app;
+    const {forms, Accordian, ts, Modal,gr} = g_dp_app;
 
     const DisplayBudgetForms = () => forms.names.map((x, id) => <div><Accordian counter={id} header={x}/></div>);
     const Budget = ({title, callback}) => {
+        const [modalShow, setModalShow] = gr.useState(false);
         // const [formData,setFormData]=gr.useState({});
         let submitBudget = () => {
             let textElms = document.getElementsByClassName('xinput');
@@ -32,14 +33,20 @@
                 <div>
                     <button className="btn black" onClick={() => submitBudget()}>Submit</button>
                     <button className="btn red" onClick={() => ts.info('resetting, ok!')}>Reset</button>
+                    <button className="btn yellow" onClick={() => {setModalShow(true);}}>Instruction</button>
+                </div>
+                <div>
+                    <Modal show={modalShow} contents={'hi there'} title={'Ok! read instruction carefully'} close={() => {
+                        setModalShow(false);
+                    }} ok={()=>{ts.success('Ok we are sure, you have read');}}/>
                 </div>
                 {callback()}
             </div>
         );
     }
 
-    g_dp_app.extend('DisplayBudgetForms',DisplayBudgetForms);
-    g_dp_app.extend('Budget',Budget);
+    g_dp_app.extend('DisplayBudgetForms', DisplayBudgetForms);
+    g_dp_app.extend('Budget', Budget);
 
 })();
 

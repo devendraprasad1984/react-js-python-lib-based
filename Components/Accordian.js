@@ -55,7 +55,6 @@
                             ? <button className="btn black"  onClick={()=>handleAccordian(counter+1)}>Next</button>
                             : <button className="btn red"  onClick={()=>handleAccordian(counter+1)}>Submit</button>
                         }
-
                     </div>
                     <br/>
                 </div>
